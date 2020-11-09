@@ -1,3 +1,9 @@
+<!-- 
+CODE JAVAFX REPRIS DE MOSTAPHA AVEC SEULS MODIFICATIONS: 
+AJOUT LABEL ERREUR 
+AJOUT FX:ID DES VARIABLES
+AJOUT ON ACTION DU BOUTON -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
@@ -28,7 +34,10 @@
                      </font>
                   </Text>
                   <Label layoutX="103.0" layoutY="385.0" prefHeight="18.0" prefWidth="150.0" />
-                  <Label fx:id="etatCo" layoutX="80.0" layoutY="377.0" prefHeight="39.0" prefWidth="215.0" />
+                  <Label fx:id="etatCo" layoutX="9.0" layoutY="377.0" prefHeight="39.0" prefWidth="286.0" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
          </right>
@@ -37,7 +46,7 @@
                <children>
                   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="112.0" layoutY="202.0">
                      <image>
-                        <Image url="@../../../Desktop/train.png" />
+                        <Image url="@../../../../../Desktop/Logo.png" />
                      </image>
                   </ImageView>
                   <Text fill="WHITE" layoutX="175.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RailWay" textAlignment="CENTER">

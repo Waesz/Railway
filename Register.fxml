@@ -1,3 +1,9 @@
+<!-- 
+CODE JAVAFX REPRIS DE MOSTAPHA AVEC SEULS MODIFICATIONS: 
+AJOUT LABEL ERREUR 
+AJOUT FX:ID DES VARIABLES
+AJOUT ON ACTION DU BOUTON -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
@@ -32,9 +38,9 @@
                   <CheckBox id="voyageur" layoutX="234.0" layoutY="368.0" mnemonicParsing="false" text="Voyageur" />
                   <Label layoutX="135.0" layoutY="343.0" text="vous êtes un : " />
                   <TextField id="nom" fx:id="nom" layoutX="98.0" layoutY="128.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #FF5733; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Label fx:id="erreur" layoutX="10.0" layoutY="436.0" prefHeight="50.0" prefWidth="330.0">
+                  <Label fx:id="erreur" layoutX="10.0" layoutY="436.0" prefHeight="50.0" prefWidth="330.0" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font size="7.0" />
+                        <Font size="12.0" />
                      </font>
                   </Label>
                </children>
@@ -45,7 +51,7 @@
                <children>
                   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="112.0" layoutY="202.0">
                      <image>
-                        <Image url="@../../../Desktop/train.png" />
+                        <Image url="@../../../../../Desktop/Logo.png" />
                      </image>
                   </ImageView>
                   <Text fill="WHITE" layoutX="175.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RailWay" textAlignment="CENTER">

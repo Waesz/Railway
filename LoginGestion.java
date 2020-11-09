@@ -29,12 +29,16 @@ public class LoginGestion implements Initializable{
 		Connection con=ConnectionBdFero.connect();
 		PreparedStatement stat = null;
 		ResultSet rs= null;
+		
 		String sql="SELECT * FROM Personne WHERE email = ? AND mdp = ?";
 				try {
 					stat = con.prepareStatement(sql);
+					
 					stat.setString(1, emailCo.getText().toString()); 
 					stat.setString(2, passwordCo.getText().toString()); 
+					
 					rs=stat.executeQuery();
+					
 					if(rs.next()) {
 						etatCo.setText("connecté");
 					}
@@ -43,7 +47,7 @@ public class LoginGestion implements Initializable{
 					}
 				}catch 
 					(Exception e ){
-						
+					
 					}
 				}
 		

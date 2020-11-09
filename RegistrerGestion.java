@@ -1,6 +1,5 @@
 package application;
 
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 
 public class RegistrerGestion implements Initializable{
 
@@ -40,51 +38,60 @@ public class RegistrerGestion implements Initializable{
 		 String passwordS= password.getText().toString();
 		 String passwordVS= passwordV.getText().toString();
 		 
-		Connection con=ConnectionBdFero.connect();
-		PreparedStatement stat = null;
-		ResultSet rs= null;
+		 	
 		
-		System.out.println(nomS);
-		System.out.println(prenomS);
-		System.out.println(emailS);
-		System.out.println(passwordS);
-		System.out.println(passwordVS);
 		
-		if(nomS!=null && prenomS!=null &&passwordS!=null && passwordVS!=null ) {
+		
+		
+		
+		//if(nomS!=null && prenomS!=null &&passwordS!=null && passwordVS!=null ) {
 			
 			
-		if ( nomS.matches("[a-z]")) {
+		if ( nomS.matches("[a-zA-Z]+")) {
 			
 			
-			if ( prenomS.matches("[a-z]")) {
+			if ( prenomS.matches("[a-zA-Z]+")) {
 				
 				// faire les prenoms composé 					
 			
 				if (  passwordS.length()>=8 && passwordS.length()<=25) {
 					
-					if(passwordS==passwordVS) {
+					if(passwordS.equals(passwordVS)) {
 					
 				
-					if ( emailS.matches(".+@.+\\.[a-z]+")) {
+					//if ( emailS.matches("[a-z0-9]+@[a-z0-9]+\\.[a-z]{2,4}$")) {
 						
 						
 							//if(passwordS.matches("")) //Mettre specification mdp pour admin
 									//{
 							
-								
+						System.out.println(nomS);
+						System.out.println(prenomS);
+						System.out.println(emailS);
+						System.out.println(passwordS);
+						System.out.println(passwordVS);
 							
-							String sql="INSERT INTO PERSONNE (nom,prenom,mdp,email,typeAbo) VALUES (?,?,?,?,?)";
+						
+						Connection con=ConnectionBdFero.connect();
+						PreparedStatement stat = null;
+						ResultSet rs= null;
+						
+							String sql="INSERT INTO Personne (nom,prénom,mdp,email) VALUES (?,?,?,?)";
 									try {
 										stat =con.prepareStatement(sql);
 										stat.setString(1,nomS); 
 										stat.setString(2, prenomS);
 										stat.setString(3, passwordS); 
 										stat.setString(4, emailS);
-										stat.setString(5, "e");
+										
 										
 										rs=stat.executeQuery();
-										
-										
+										if(rs.next()) {
+											erreur.setText("Inscription réussie");
+										}
+										else {
+											erreur.setText("problème systeme");
+										}
 									}catch 
 										(Exception e ){
 											
@@ -95,10 +102,10 @@ public class RegistrerGestion implements Initializable{
 							
 		
 							
-			    }else {
+			   /* }else {
 								
 						erreur.setText("Désolé ! Veuillez renseigne un email correct ");
-			}
+			}*/
 				}else {
 						erreur.setText("Désolé! Vos mots de passes renseignées ne sont pas identiques");
 			}
@@ -115,27 +122,20 @@ public class RegistrerGestion implements Initializable{
 					
 
 			}
-				}else {
+			/*}else {
 						erreur.setText("Désolé ! Veuillez remplir tous les champs pour créer votre compte");	
 					}
 		
-		
+		*/
 	
+		
 }
-		
-	
-	
-
-
-
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 
 
