@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,12 +9,18 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import ConnectionBdFero.ConnectionBdFero;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class LoginGestion implements Initializable{
 
@@ -22,7 +29,14 @@ public class LoginGestion implements Initializable{
 	@FXML private Label etatCo;
 	
 	
-	
+
+	/**
+	 * @author lry41
+	 * @param event 
+	 * @throws SQLException
+	 * @version 1.0
+	 * @return erreur ou verifie donnée dans la bd pour accés user 
+	 */
 	
 	@FXML
 	public void login(ActionEvent event) throws SQLException {
@@ -35,7 +49,7 @@ public class LoginGestion implements Initializable{
 					stat = con.prepareStatement(sql);
 					
 					stat.setString(1, emailCo.getText().toString()); 
-					stat.setString(2, passwordCo.getText().toString()); 
+					stat.setString(2, passwordCo.getText().toString()); //on prend les données inseres dans les champs 
 					
 					rs=stat.executeQuery();
 					
@@ -43,7 +57,7 @@ public class LoginGestion implements Initializable{
 						etatCo.setText("connecté");
 					}
 					else {
-						etatCo.setText("Votre mail ou votre mot de passe est incorrect");
+						etatCo.setText("Votre mail ou votre mot de passe est incorrect"); //on inidque les problemes a l'utilisateur que ces identifiants sont incorrect
 					}
 				}catch 
 					(Exception e ){
@@ -61,4 +75,18 @@ public class LoginGestion implements Initializable{
 	}
 	
 	
+
+public void OuvertureRegister (ActionEvent event) throws IOException{
+	Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+	
+	Stage stage = new Stage(); 
+	stage.initModality(Modality.APPLICATION_MODAL); 
+	stage.setOpacity(1); 
+	stage.setTitle("Inscription RailWay"); 
+	stage.setScene(new Scene(root, 700, 500)); 
+	stage.showAndWait(); 
+	
+	 //primaryStage.close();
+}
+
 }

@@ -1,3 +1,4 @@
+
 <!-- 
 CODE JAVAFX REPRIS DE MOSTAPHA AVEC SEULS MODIFICATIONS: 
 AJOUT LABEL ERREUR 
@@ -34,10 +35,11 @@ AJOUT ON ACTION DU BOUTON -->
                      </font>
                   </Text>
                   <Label layoutX="103.0" layoutY="385.0" prefHeight="18.0" prefWidth="150.0" />
-                  <Label fx:id="etatCo" layoutX="9.0" layoutY="377.0" prefHeight="39.0" prefWidth="286.0" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="etatCo" layoutX="31.0" layoutY="355.0" prefHeight="39.0" prefWidth="286.0" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font></Label>
+                  <Button layoutX="50.0" layoutY="423.0" mnemonicParsing="false" onAction="#OuvertureRegister" style="-fx-background-color: #FFFFFF;" text="Vous n'avez pas de compte ? Créez en ici !" underline="true" />
                </children>
             </AnchorPane>
          </right>
