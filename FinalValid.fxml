@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinalValid">
+   <children>
+      <BorderPane prefHeight="506.0" prefWidth="739.0">
+         <right>
+            <AnchorPane prefHeight="506.0" prefWidth="696.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="506.0" prefWidth="746.0" style="-fx-background-color: #FF5733;">
+                     <children>
+                        <AnchorPane layoutX="176.0" layoutY="62.0" prefHeight="383.0" prefWidth="395.0" style="-fx-background-color: #FFF;">
+                           <children>
+                              <Text fill="#ff5733" layoutX="56.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOTRE RÈSERVATION EST ENREGISTRÈE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="56.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réserver par : ">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="56.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville de départ :">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="56.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville d'arriver :">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="57.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="57.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heure :">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Label fx:id="Nompre" layoutX="170.0" layoutY="106.0" prefHeight="17.0" prefWidth="210.0" />
+                              <Label fx:id="VilleD" layoutX="170.0" layoutY="143.0" prefHeight="17.0" prefWidth="206.0" />
+                              <Label fx:id="VilleA" layoutX="170.0" layoutY="183.0" prefHeight="17.0" prefWidth="208.0" />
+                              <Label fx:id="Date" layoutX="170.0" layoutY="229.0" prefHeight="17.0" prefWidth="220.0" />
+                              <Label fx:id="HeureD" layoutX="170.0" layoutY="270.0" prefHeight="17.0" prefWidth="229.0" />
+                           </children></AnchorPane>
+                        <Text fill="WHITE" layoutX="176.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RailWay">
+                           <font>
+                              <Font name="System Bold Italic" size="27.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
