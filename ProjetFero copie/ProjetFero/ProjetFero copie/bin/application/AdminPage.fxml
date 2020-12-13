@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminPage">
+   <children>
+      <BorderPane prefHeight="506.0" prefWidth="739.0">
+         <right>
+            <AnchorPane prefHeight="506.0" prefWidth="696.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="506.0" prefWidth="746.0" style="-fx-background-color: #FF5733;">
+                     <children>
+                        <Text fill="WHITE" layoutX="27.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue ">
+                           <font>
+                              <Font name="System Bold Italic" size="62.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="userCo" layoutX="366.0" layoutY="62.0" prefHeight="56.0" prefWidth="353.0" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="39.0" />
+                           </font>
+                        </Label>
+                        <Text fill="WHITE" layoutX="273.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour RÉSERVER un billet ">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="341.0" layoutY="190.0" mnemonicParsing="false" onAction="#OuvertureRese" text="Cliquez ici" />
+                        <Text fill="WHITE" layoutX="259.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour Revenir à la page d'accueil">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="341.0" layoutY="268.0" mnemonicParsing="false" onAction="#OuvertureAccu" text="Cliquez ici" />
+                        <Text fill="WHITE" layoutX="289.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour ajouter un train">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="341.0" layoutY="343.0" mnemonicParsing="false" onAction="#addTrain" text="Cliquez ici" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
