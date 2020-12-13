@@ -1,9 +1,11 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 //import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+//import java.sql.SQLException;
 //import java.sql.SQLException;
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -18,7 +20,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -26,6 +31,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 
@@ -81,7 +88,7 @@ public class PlanningGestion implements Initializable{
 	
 	ObservableList<ModelePlanning>listP=FXCollections.observableArrayList(); //creation ListP
 
-@SuppressWarnings({ "unused", "unchecked" })
+@SuppressWarnings({ "unused"})
 @Override
 
 
@@ -93,23 +100,23 @@ public class PlanningGestion implements Initializable{
  */
 public void initialize(URL arg0, ResourceBundle arg1) {//sert a initaliser la page avec les modif
 	DateAffichage.setText(DateAujourdhuiString);//on place la date dans son label
-	//Nom.setText();
+	
 	
 	TableColumn<ModelePlanning, ModelePlanning> btnCol = new TableColumn<>("Réservation"); 
-	btnCol.setMinWidth(150); 
+	btnCol.setMinWidth(90); 
 	btnCol.setCellValueFactory(new Callback<CellDataFeatures<ModelePlanning, ModelePlanning>, ObservableValue<ModelePlanning>>() {
 		//création de la colonne pour le bouton
 		
 		@Override
 		public ObservableValue<ModelePlanning> call(CellDataFeatures<ModelePlanning, ModelePlanning> features) {
-			return new ReadOnlyObjectWrapper(features.getValue());
+			return new ReadOnlyObjectWrapper<ModelePlanning>(features.getValue());
 		} 
 	});
 	
 	btnCol.setCellFactory(new Callback<TableColumn<ModelePlanning, ModelePlanning>, TableCell<ModelePlanning, ModelePlanning>>() { 
 	    @Override public TableCell<ModelePlanning, ModelePlanning> call(TableColumn<ModelePlanning, ModelePlanning> btnCol) { 
 	    final Button button = new Button(); 
-	    button.setMinWidth(130); // creation du bouton 
+	    button.setMinWidth(70); // creation du bouton à insérer par la suite dans la colonne crée pour 
 	    
 	    TableCell<ModelePlanning, ModelePlanning> cell = new TableCell<ModelePlanning, ModelePlanning>() {    
 	     @Override public void updateItem(final ModelePlanning ModelePlanning, boolean empty) { 
@@ -124,11 +131,19 @@ public void initialize(URL arg0, ResourceBundle arg1) {//sert a initaliser la pa
 	     } 
 	    }; 
 	    // affichage du bouton seulement si la colonne n'est pas vide 
+	    
 
 	    button.setOnAction(new EventHandler<ActionEvent>() { 
-	     @Override public void handle(ActionEvent event) { 
+	    	
+	     @Override 
+	     public void handle(ActionEvent event) { 
 	    	 ModelePlanning currentItem = cell.getItem(); 
-	      //do something with current item... 
+	    	 try {
+				OuvertureValidationAchat(event);// appelle de la méthode pour ouvrir la validation d'achat
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	    	 
 	     } 
 	    }); 
 
@@ -136,8 +151,7 @@ public void initialize(URL arg0, ResourceBundle arg1) {//sert a initaliser la pa
 	    } 
 	}); 
 	
-	planning.getColumns().add(btnCol); //ajout du boutton dans le planning 
-	
+	planning.getColumns().add(btnCol); 
 	col_villeD.setCellValueFactory(new PropertyValueFactory<>("ville"));
 	col_dateDepart.setCellValueFactory(new PropertyValueFactory<>("dateD"));
 	col_dateArrivee.setCellValueFactory(new PropertyValueFactory<>("dateA"));
@@ -156,6 +170,8 @@ public void initialize(URL arg0, ResourceBundle arg1) {//sert a initaliser la pa
 	 
 	 ResultSet rs2= con.createStatement().executeQuery("SELECT * FROM train , gare,ligne Where ligne.idtrain=train.idtrain AND ligne.gare_arr = gare.idgare AND  date_dep >='"+DateAujourdhuiString+"' AND place_Dispo >'0'"
 			+ " ORDER BY date_dep "); //pour la ville destination
+	 
+	
 
 	while(rs.next()&&rs2.next()){//boucle tant que des données existe on rentre les données
 		
@@ -177,6 +193,18 @@ public void initialize(URL arg0, ResourceBundle arg1) {//sert a initaliser la pa
 	
 	
 	planning.setItems(listP); //on met la liste ListP dans le planning de java fx 
+	
+}
+
+public void OuvertureValidationAchat(ActionEvent event)throws IOException{ //méthode qui redirige vers la page FXML pour la validation d'achat
+Parent root = FXMLLoader.load(getClass().getResource("ValidationAchat.fxml"));
+	
+	Stage stage = new Stage(); 
+	stage.initModality(Modality.APPLICATION_MODAL); 
+	stage.setOpacity(1); 
+	stage.setTitle("Validation Achat"); 
+	stage.setScene(new Scene(root, 700, 500)); 
+	stage.showAndWait(); 
 	
 }
 
