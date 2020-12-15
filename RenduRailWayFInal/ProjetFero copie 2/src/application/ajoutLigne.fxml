@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminGestion.ajoutLigne">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="700.0">
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: #FF5733;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="112.0" layoutY="202.0">
+                     <image>
+                        <Image url="@../../../../../Desktop/Logo.png" />
+                     </image>
+                  </ImageView>
+                  <ScrollPane prefHeight="248.0" prefWidth="247.0">
+                     <content>
+                        <TableView fx:id="trains" prefHeight="241.0" prefWidth="235.0" style="-fx-border-width: 5;">
+                           <columns>
+                              <TableColumn fx:id="idTrain" editable="false" prefWidth="45.0" text="id" />
+                              <TableColumn fx:id="train" editable="false" prefWidth="114.0" text="train" />
+                              <TableColumn fx:id="nb_place" editable="false" prefWidth="75.0" text="nb place" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane layoutY="250.0" prefHeight="248.0" prefWidth="245.0">
+                     <content>
+                        <TableView fx:id="gares" prefHeight="251.0" prefWidth="233.0" style="-fx-border-width: 5;">
+                           <columns>
+                              <TableColumn fx:id="ville" editable="false" prefWidth="114.0" text="ville " />
+                              <TableColumn fx:id="nom_gare" editable="false" prefWidth="122.0" text="nom de gare" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <Text fill="WHITE" layoutX="380.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Line | RailWay" textAlignment="CENTER">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Text>
+                  <TextField id="nom" fx:id="nom_ligne" layoutX="402.0" layoutY="89.0" promptText="Nom" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <TextField id="nom" fx:id="gare_depL" layoutX="402.0" layoutY="124.0" promptText="id gare départ" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <TextField id="nom" fx:id="gare_arrL" layoutX="402.0" layoutY="167.0" promptText="id gare d'arrivé" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <TextField id="nom" fx:id="distance" layoutX="402.0" layoutY="202.0" promptText="distance" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <TextField id="nom" fx:id="date_dep" layoutX="402.0" layoutY="237.0" promptText="date de départ" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <TextField id="nom" fx:id="date_arrivé" layoutX="402.0" layoutY="277.0" promptText="date d'arrivé" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <TextField id="nom" fx:id="place_dispo" layoutX="402.0" layoutY="315.0" promptText="place disponibles" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <TextField id="nom" fx:id="id_train" layoutX="402.0" layoutY="347.0" promptText="id train" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <Button id="Inscription" layoutX="448.0" layoutY="425.0" mnemonicParsing="false" onAction="#AddLigne" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: Black;" text="Add" textFill="WHITE" />
+                  <TextField id="nom" fx:id="prix" layoutX="402.0" layoutY="382.0" promptText="prix billet" style="-fx-background-color: #FF5733; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: white;" />
+                  <Label fx:id="erreur1" layoutX="311.0" layoutY="459.0" prefHeight="27.0" prefWidth="330.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="erreur11" layoutX="258.0" layoutY="237.0" prefHeight="27.0" prefWidth="129.0" text="yyyy-mm-dd hh:mm:ss" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="erreur111" layoutX="258.0" layoutY="277.0" prefHeight="27.0" prefWidth="129.0" text="yyyy-mm-dd hh:mm:ss" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

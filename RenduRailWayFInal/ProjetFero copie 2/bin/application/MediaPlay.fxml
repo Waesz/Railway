@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- REALISE PAR LRY41 =GEOFFREY -->
+<?import java.lang.*?> 
+<?import javafx.scene.layout.*?> 
+<?import javafx.scene.media.*?> 
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?> 
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GestionMediaPlay">
+   <children>
+    <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" BorderPane.alignment="CENTER" />
+   </children>
+</AnchorPane>
+
+
